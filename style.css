@@ -1,0 +1,154 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.cursor:hover{
+    cursor:pointer
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .navbar a {
+   
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+#header_container{
+    background-color: black;
+    color: white;
+    display: grid;
+}  
+.logo{
+margin: 0;
+padding-left: 45%;
+padding-top: 0;
+}
+.cart_corner {
+  padding-left: 95%;
+}
+
+
+
+.home_button_and_path{
+    flex-basis: 30%;
+}
+#store_section_name{
+    padding-left: 50%;
+    font-size: 25px;
+}
+ .c{
+     background-color: black;
+     color:white;
+     padding: 3px;
+    height: 30px;
+    width: 25%;
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ }
+ .c:active{
+  background-color: red;
+ }
+ 
+ 
+ li{
+    list-style-type: none;
+ }
+ ul li { padding: 5px 0px; }
+ 
+
+ #products_catalogue_box{
+  
+  display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   padding-left: 10%;
+ }
+ .product_box{
+   border-color: black;
+   border-width: 10px;
+   flex: 1 1 50%;
+ }
+ #store_navigation{
+margin-top: 5%;
+ }
+ #footer_container{
+   margin-top: 5%;
+background-color: black;
+color:white;
+padding: 3%;
+ }
+ .artikul{
+   color: white;
+ }
+ 
+/* #my_cart{
+  visibility: hidden;
+
+}
+#my_cart.mystyle {
+ 
+  visibility: visible;
+} */
+#total_result{
+  font-size: large;
+}
+.subtotal_result{
+  background-color: rgb(155, 155, 212);
+}
