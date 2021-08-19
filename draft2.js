@@ -64,15 +64,49 @@ function renderboxx() {
   
   `;
   ull.appendChild(lii);
+  // localStorage.setItem(JSON.stringify(element.id),JSON.stringify(element.name))
+
 }
 
+        
 
 }
 renderboxx()
 
 /////////////////////////render shopping cart function
-var shopping_cart=[]
+// localStorage.setItem("ourarraykey",JSON.stringify(products));
+// var storedArray = localStorage.getItem("ourarraykey");
+// let shopping_cart = JSON.parse(storedArray);
+// window.alert(typeof ourArray)
+
+// function localcart(){
+  // var shop_cart=[]
+  //  var ourArray=[]
+  // localStorage.setItem("cart",JSON.stringify(products));
   
+  // var storedArray = localStorage.getItem("cart");
+// ourArray = JSON.parse(storedArray);
+
+// document.body.innerHTML=ourArray[0].id
+// window.alert(ourArray.length)
+  // let productnumbers = parseInt( localStorage.getItem(JSON.stringify( products[i].id)))
+  // if (productnumbers) {
+  //   localStorage.setItem(JSON.stringify( products[i].id),productnumbers+ 1)
+  // } else {
+  //   localStorage.setItem(JSON.stringify( products[i].id),1)
+  // }
+  
+// }
+// localcart()
+ 
+var storedArray = localStorage.getItem("cart");
+if (storedArray==undefined) {
+   var shopping_cart=[]
+} else {
+  shopping_cart=JSON.parse( storedArray)
+  console.log(shopping_cart)
+}
+
 let ul4 = document.getElementById('my_cart')
 function render_cart() {
 
@@ -117,17 +151,18 @@ var erased_cart_innnerhtml= `
 for (let i = 0; i < pressherebtn.length; i++) {
   const el = pressherebtn[i].addEventListener('click', add_to_cart)
   function add_to_cart() {
-
+    
     let item_from_base= products[i]
     let obj= shopping_cart.find(o => o.id == item_from_base.id)
     var cart_add_btn= document.getElementsByClassName('cart_btn_plus')
-    // var cart_item_quantity_btn= document.getElementsByClassName('cart_item_quantity')
+    
     if (obj==undefined) {
       shopping_cart.push(item_from_base)
+
       objInd = shopping_cart.findIndex((ob => ob.id == item_from_base.id));
       shopping_cart[objInd].quantity =  1
       ul4.innerHTML=erased_cart_innnerhtml
-
+      localStorage.setItem("cart",JSON.stringify(shopping_cart));
   render_cart()
     
 hmmm()
@@ -139,6 +174,7 @@ cart_items_qnty()
       objIndex = shopping_cart.findIndex((ob => ob.id == item_from_base.id));
       shopping_cart[objIndex].quantity =  shopping_cart[objIndex].quantity+1
       ul4.innerHTML=erased_cart_innnerhtml
+      localStorage.setItem("cart",JSON.stringify(shopping_cart));
 
   render_cart()
     
@@ -148,6 +184,34 @@ hmmm()
     minus_btn_function()
     cart_items_qnty()
     }
+
+
+
+// function addtolocalcart(){
+  
+//   let productnumbers = parseInt( localStorage.getItem(JSON.stringify( products[i].id)))
+//   if (productnumbers) {
+//     localStorage.setItem(JSON.stringify( products[i].id),productnumbers+ 1)
+//   } else {
+//     localStorage.setItem(JSON.stringify( products[i].id),1)
+//   }
+  
+// }
+// addtolocalcart()
+
+
+// function addtolocalcart(){
+  
+//   let productnumbers = parseInt( localStorage.getItem(JSON.stringify( products[i].id)))
+//   if (productnumbers) {
+//     localStorage.setItem(JSON.stringify( products[i].id),productnumbers+ 1)
+//   } else {
+//     localStorage.setItem(JSON.stringify( products[i].id),1)
+//   }
+  
+// }
+// addtolocalcart()
+
 
 }
   }
@@ -161,15 +225,47 @@ hmmm()
         var id_in_cart = cart_add_btn[index].parentElement.parentElement.firstElementChild. innerHTML
       objIndex = shopping_cart.findIndex((obj => obj.id == id_in_cart));
       shopping_cart[objIndex].quantity =  shopping_cart[objIndex].quantity+1
-    console.log(shopping_cart[objIndex].quantity)
     ul4.innerHTML=erased_cart_innnerhtml
+    localStorage.setItem("cart",JSON.stringify(shopping_cart));
     render_cart()
     hmmm()
     plus_btn_function()
     minus_btn_function()
-    // cart_items_qnty()
+    
+
+  //   function plusbtnlocalcart(){
+  // let idinls= id_in_cart
+  //     let quantity_in_ls = localStorage.getItem(JSON.parse(id_in_cart ))
+  //     let tmp=Number( quantity_in_ls)
+  //     // window.alert(get_id_from_ls)
+  //     // let counter_in_ls=Number(quantity_in_ls)+1
+  //     // localStorage.setItem(JSON.stringify("ggg","trrr"))
+     
+  //     // if (productnumbers) {
+  //     //   localStorage.setItem(JSON.stringify( products[i].id),productnumbers+ 1)
+  //     // } else {
+  //       localStorage.setItem(JSON.stringify(id_in_cart),tmp=tmp+1)
+  //     // }
+      
+  //   }
+  //   plusbtnlocalcart()
+
+
+
+
+
+
       }
     }
+
+
+
+
+
+
+
+
+
     }
 
     function minus_btn_function(){
@@ -203,6 +299,7 @@ hmmm()
       
 
       ul4.innerHTML=erased_cart_innnerhtml
+      localStorage.setItem("cart",JSON.stringify(shopping_cart));
       render_cart()
       hmmm()
       minus_btn_function()
@@ -222,6 +319,7 @@ function hmmm() {
     let element= Number( subtotal_result_tag[index].innerHTML)
     total= total + element
     total_result_tag.innerHTML=total +"$"
+    
 }    
   
 }  
@@ -311,4 +409,3 @@ counter=counter+in_cart_item
 // }
 
   
-
